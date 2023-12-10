@@ -270,18 +270,14 @@ def map_coropleta_fol(df):
     folium.LayerControl().add_to(MapaMexico)
     #Agregar Botón de Pantalla Completa 
     plugins.Fullscreen(position="topright").add_to(MapaMexico)
-      
+    #Mostrar Mapa
+    folium_static(MapaMexico, width=1370)
     c13, c14, c15, c16, c17 = st.columns([1,1,1,1,1])
     with c15:
         export_mapa = st.button("Descargar Mapa")
         if export_mapa:
-            #Mostrar Mapa
-            folium_static(MapaMexico, width=1370)
             MapaMexico.save("mapa.html")
             st.success("¡Mapa Descargado!")
-
-    #Mostrar Mapa
-    #folium_static(MapaMexico, width=1370)
 
 # --- USER AUTHENTICATION ---
 users = user_db.fetch_all_users()
