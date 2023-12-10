@@ -270,7 +270,16 @@ def map_coropleta_fol(df):
     folium.LayerControl().add_to(MapaMexico)
     #Agregar Botón de Pantalla Completa 
     plugins.Fullscreen(position="topright").add_to(MapaMexico)
-
+    #funcion descargar mapa#Mapa Coropleta
+    def download_map(df):
+        return MapaMexico.save("mapa.html")
+      
+    c13, c14, c15, c16, c17 = st.columns([1,1,1,1,1])
+    with c15:
+        export_mapa = st.button("Descargar Mapa")
+        if export_mapa:
+            MapaMexico.save("mapa.html")
+            st.success("¡Mapa Descargado!")
     #Mostrar Mapa
     folium_static(MapaMexico, width=1370)
 
@@ -565,16 +574,10 @@ if authentication_status:
                     sorted_unique_mes2 = sorted(df_selected_ao2['Mes'].unique())
                     selected_mes2 = container6.multiselect('Mes(es):', sorted_unique_mes2, key="mes3") 
                     df_selected_mes2 = df_selected_ao2[df_selected_ao2['Mes'].isin(selected_mes2)].astype(str)
-
+            
             #Mapa Coropleta
             mapa = map_coropleta_fol(df_selected_mes2)
-            c13, c14, c15, c16, c17 = st.columns([1,1,1,1,1])
-            with c15:
-                export_mapa = st.button("Descargar Mapa")
-                if export_mapa:
-                    mapa.save("mapa.html")
-                    st.success("¡Mapa Descargado!")
-
+       
     elif username == 'cgalan':
         # Mostrar tipo de auditoria a registrar
         options = st.sidebar.selectbox("Seleccionar Opciones:",("Data Visualización","Mapa de Calor"))
@@ -751,12 +754,6 @@ if authentication_status:
 
             #Mapa Coropleta
             mapa = map_coropleta_fol(df_selected_mes2)
-            c13, c14, c15, c16, c17 = st.columns([1,1,1,1,1])
-            with c15:
-                export = st.button("Descargar")
-                if export:
-                    mapa.save("mapa.html")
-                    st.success("¡Mapa Descargado!")
 
     elif username == 'fmartinez':
         # Mostrar tipo de auditoria a registrar
@@ -934,12 +931,6 @@ if authentication_status:
 
             #Mapa Coropleta
             mapa = map_coropleta_fol(df_selected_mes2)
-            c13, c14, c15, c16, c17 = st.columns([1,1,1,1,1])
-            with c15:
-                export = st.button("Descargar")
-                if export:
-                    mapa.save("mapa.html")
-                    st.success("¡Mapa Descargado!")
     
     elif username == 'mvillareal':
         # Mostrar tipo de auditoria a registrar
@@ -1117,12 +1108,6 @@ if authentication_status:
 
             #Mapa Coropleta
             mapa = map_coropleta_fol(df_selected_mes2)
-            c13, c14, c15, c16, c17 = st.columns([1,1,1,1,1])
-            with c15:
-                export = st.button("Descargar")
-                if export:
-                    mapa.save("mapa.html")
-                    st.success("¡Mapa Descargado!")
     
     elif username == 'dramos':
         # Mostrar tipo de auditoria a registrar
@@ -1266,12 +1251,6 @@ if authentication_status:
 
             #Mapa Coropleta
             mapa = map_coropleta_fol(df_selected_mes2)
-            c13, c14, c15, c16, c17 = st.columns([1,1,1,1,1])
-            with c15:
-                export = st.button("Descargar")
-                if export:
-                    mapa.save('mapa.html')
-                    st.success("¡Mapa Descargado!")
 
     elif username == 'sdominguez':
         # Mostrar tipo de auditoria a registrar
@@ -1416,12 +1395,6 @@ if authentication_status:
 
             #Mapa Coropleta
             mapa = map_coropleta_fol(df_selected_mes2)
-            c13, c14, c15, c16, c17 = st.columns([1,1,1,1,1])
-            with c15:
-                export = st.button("Descargar")
-                if export:
-                    mapa.save("mapa.html")
-                    st.success("¡Mapa Descargado!")
     
     elif username == 'djarquin':
 
@@ -1567,12 +1540,6 @@ if authentication_status:
 
             #Mapa Coropleta
             mapa = map_coropleta_fol(df_selected_mes2)
-            c13, c14, c15, c16, c17 = st.columns([1,1,1,1,1])
-            with c15:
-                export = st.button("Descargar")
-                if export:
-                    mapa.save("mapa.html")
-                    st.success("¡Mapa Descargado!")
     
     elif username == 'fnicolas':
         # Mostrar tipo de auditoria a registrar
@@ -1717,12 +1684,6 @@ if authentication_status:
 
             #Mapa Coropleta
             mapa = map_coropleta_fol(df_selected_mes2)
-            c13, c14, c15, c16, c17 = st.columns([1,1,1,1,1])
-            with c15:
-                export = st.button("Descargar")
-                if export:
-                    mapa.save("mapa.html")
-                    st.success("¡Mapa Descargado!")
 
     elif username == 'eromero':
         # Mostrar tipo de auditoria a registrar
@@ -1837,7 +1798,8 @@ if authentication_status:
                     sorted_unique_mes2 = sorted(df_selected_ao2['Mes'].unique())
                     selected_mes2 = container6.multiselect('Mes(es):', sorted_unique_mes2, key="mes3") 
                     df_selected_mes2 = df_selected_ao2[df_selected_ao2['Mes'].isin(selected_mes2)].astype(str)
-
+            
+            #Mapa Coropleta
             mapa = map_coropleta_fol(df_selected_mes2)
     
     elif username == 'cruiz':
@@ -1954,6 +1916,7 @@ if authentication_status:
                     selected_mes2 = container6.multiselect('Mes(es):', sorted_unique_mes2, key="mes3") 
                     df_selected_mes2 = df_selected_ao2[df_selected_ao2['Mes'].isin(selected_mes2)].astype(str)
 
+            #Mapa Coropleta
             mapa = map_coropleta_fol(df_selected_mes2)
     
     elif username == 'mponce':
@@ -2070,6 +2033,7 @@ if authentication_status:
                     selected_mes2 = container6.multiselect('Mes(es):', sorted_unique_mes2, key="mes3") 
                     df_selected_mes2 = df_selected_ao2[df_selected_ao2['Mes'].isin(selected_mes2)].astype(str)
 
+            #Mapa Coropleta
             mapa = map_coropleta_fol(df_selected_mes2)
     
     elif username == 'fcabrera':
@@ -2187,4 +2151,5 @@ if authentication_status:
                     selected_mes2 = container6.multiselect('Mes(es):', sorted_unique_mes2, key="mes3") 
                     df_selected_mes2 = df_selected_ao2[df_selected_ao2['Mes'].isin(selected_mes2)].astype(str)
 
+            #Mapa Coropleta
             mapa = map_coropleta_fol(df_selected_mes2)
