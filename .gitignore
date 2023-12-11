@@ -125,6 +125,7 @@ celerybeat.pid
 
 upload_to_database.py
 upload_to_db_ainsurance.py
+.streamlit/secrets.toml
 
 # Environments
 .env
