@@ -32,7 +32,7 @@ with open('style.css') as f:
        
 def genSankey(df,cat_cols=[],value_cols='', title='Sankey Diagram'):
     # maximum of 6 value cols -> 6 colors
-    colorPalette = ['#4B8BBE','#306998','#FFE873','#FFD43B','#646464']
+    colorPalette = ['#4B8BBE','#26E566','#FFE873','#FFD43B','#646464']
     labelList = []
     colorNumList = []
     for catCol in cat_cols:
