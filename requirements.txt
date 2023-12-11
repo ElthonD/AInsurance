@@ -8,4 +8,3 @@ openpyxl==3.1.2
 plotly
 deta
 streamlit_authenticator
-dotenv
