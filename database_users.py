@@ -1,14 +1,14 @@
 import os
 import streamlit as st
 from deta import Deta
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 
 #Cargar las variables de entorno
 
-#load_dotenv(".env")
-#DETA_KEY = os.getenv("DETA_KEY")
+load_dotenv(".env")
+DETA_KEY = os.getenv("DETA_KEY")
 # Load the environment variables
-DETA_KEY = st.secrets["DETA_KEY"]
+#DETA_KEY = st.secrets["DETA_KEY"]
 
 # Inicializar con una clave de proyecto
 
